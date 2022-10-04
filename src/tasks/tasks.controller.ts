@@ -1,4 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
+import { Task } from './task.model';
 import { TasksService } from './tasks.service';
 
 @Controller('tasks')
@@ -8,7 +9,7 @@ export class TasksController {
 
   // whenever a GET request to tasks comes in, this method is called.
   @Get()
-  getAllTasks() {
+  getAllTasks(): Task[] {
     return this.tasksService.getAllTasks();
   }
 }
