@@ -11,15 +11,11 @@ export class TasksController {
   // taskService param is a private property of the controller, therefore we can use in the class
   constructor(private tasksService: TasksService) {}
 
-  // // whenever a GET request to tasks comes in, this method is called.
-  // @Get()
-  // getTasks(@Query() filterDto: GetTasksFilterDto): Task[] {
-  //   if (Object.keys(filterDto).length) {
-  //     return this.tasksService.getTasksWithFilters(filterDto);
-  //   } else {
-  //     return this.tasksService.getAllTasks();
-  //   }
-  // }
+  // whenever a GET request to tasks comes in, this method is called.
+  @Get()
+  getTasks(@Query() filterDto: GetTasksFilterDto): Promise<Task[]> {
+    return this.tasksService.getTasks(filterDto)
+  }
 
   @Get('/:id')
   getTaskById(@Param('id') id: string): Promise<Task> {
