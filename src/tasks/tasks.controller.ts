@@ -26,11 +26,11 @@ export class TasksController {
     return this.tasksService.getTaskById(id)
   }
 
-  // @Post()
-  // // @Body ~> the request body that is assigned to the body parameter as an argument
-  // createTask(@Body() createTaskDto: CreateTaskDto): Task {
-  //   return this.tasksService.createTask(createTaskDto);
-  // }
+  @Post()
+  // @Body ~> the request body that is assigned to the body parameter as an argument
+  createTask(@Body() createTaskDto: CreateTaskDto): Promise<Task> {
+    return this.tasksService.createTask(createTaskDto);
+  }
 
   // @Delete('/:id')
   // deleteTask(@Param('id') id: string): void {
