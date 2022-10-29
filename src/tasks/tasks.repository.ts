@@ -23,7 +23,7 @@ export class TasksRepository extends Repository<Task> {
       // LIKE ~> partial match
       // In object, percentage signs means we're not looking for the entire term.
       query.andWhere(
-        'LOWER(task.title) LIKE LOWER(:search) OR LOWER(task.description) LIKE LOWER(:search)',
+        '(LOWER(task.title) LIKE LOWER(:search) OR LOWER(task.description) LIKE LOWER(:search))',
         { search: `%${search}%`},
       )
     }
